@@ -11,6 +11,14 @@ import pandas_datareader as web
 
 
 @api_view(['GET'])
+def overview(request):
+    urls = {
+        "current urls":"",
+        "/facebook":"return the prediction of the stock price for facebook"
+    }
+    return Response(urls)
+
+@api_view(['GET'])
 def facebook(request):
     mdl = joblib.load('ai/stock_model.pkl')
     test_start = dt.datetime(2020,1,1)
